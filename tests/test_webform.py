@@ -11,10 +11,9 @@ def test_webform() -> None:
     webform_page = WebFormPage(driver)
     webform_page.load()
 
-    webform_page.type_text_input("Selenium")
-    form_submitted_page = webform_page.click_submit()
+    submitted_page = webform_page.type_text_input("Selenium").click_submit()
 
-    assert form_submitted_page.get_message_text() == "Received!"
+    assert submitted_page.get_message_text() == "Received!"
 
     teardown(driver)
 
