@@ -1,6 +1,5 @@
 from pages.webform import WebFormPage
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 
 
@@ -13,12 +12,9 @@ def test_webform() -> None:
     webform_page.load()
 
     webform_page.type_text_input("Selenium")
-    webform_page.click_submit()
+    form_submitted_page = webform_page.click_submit()
 
-    message = driver.find_element(By.ID, "message")
-    value = message.text
-
-    assert value == "Received!"
+    assert form_submitted_page.get_message_text() == "Received!"
 
     teardown(driver)
 
