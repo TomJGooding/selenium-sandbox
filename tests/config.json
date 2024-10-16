@@ -1,0 +1,4 @@
+{
+  "driver": "Headless Chrome",
+  "implicit_wait": 0.5
+}
